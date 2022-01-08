@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Dynamic navigation sample</string>
+    <string name="intro_fragment_label">Intro Fragment</string>
+    <string name="id_passport_verification_fragment_label">ID/Passport Verification Fragment</string>
+    <string name="eid_fragment_label">EID Fragment</string>
+    <string name="address_fragment_label">Address Fragment</string>
+    <string name="intermediate_level_fragment_label">Intermediate Fragment</string>
+    <string name="advanced_level_fragment_label">Advanced Fragment</string>
+    <string name="finish_fragment_label">Finish Fragment</string>
+    <string name="next">Next</string>
+    <string name="next_with_id_passport">Next using ID/Passport</string>
+    <string name="next_without_id_passport">Next without ID/Passport</string>
+</resources>

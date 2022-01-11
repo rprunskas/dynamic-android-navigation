@@ -4,5 +4,5 @@ import android.os.Bundle
 
 interface Screen {
     val navId: Int
-    val bundle: Bundle
+    val bundle: Bundle?
 }

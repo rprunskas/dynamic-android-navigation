@@ -4,13 +4,16 @@ import java.util.TreeSet
 
 object AppNavigator {
 
-    private var screens: TreeSet<NavigationState> = sortedSetOf()
-    private val backStack = ArrayDeque<NavigationState>(mutableListOf())
+    private var states: TreeSet<NavigationState> = sortedSetOf()
+    private val backStack = ArrayDeque<NavigationState>(listOf())
 
-    fun init(screens: TreeSet<NavigationState>) {
-        this.screens = screens
+    fun init(states: TreeSet<NavigationState>) {
+        this.states = states
     }
 
+    /**
+     * Finds start screen and adds it to the backstack
+     */
     fun findStart(): Screen {
         return findNextState(null).also {
             if (backStack.isEmpty()) {
@@ -20,7 +23,7 @@ object AppNavigator {
     }
 
     /**
-     * Finds and returns next screen and push it to backstack
+     * Finds and returns next screen and push it to the backstack
      */
     fun goNext(): Screen {
         return findNextState(backStack.lastOrNull()).also {
@@ -46,13 +49,13 @@ object AppNavigator {
      */
     private fun findNextState(currentState: NavigationState?): NavigationState {
         val nextState = if (currentState != null) {
-            if (screens.contains(currentState)) {
-                screens.higher(currentState)
+            if (states.contains(currentState)) {
+                states.higher(currentState)
             } else {
                 throw IllegalArgumentException("current state not found in queue")
             }
         } else {
-            screens.first()
+            states.first()
         }
 
         if (nextState == null) {
